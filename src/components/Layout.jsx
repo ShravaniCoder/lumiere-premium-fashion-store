@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Search, UserRound, Heart, ShoppingBag, Menu, X, Instagram, Facebook, ArrowUpRight } from 'lucide-react'
 import { useStore } from '../context/StoreContext'
@@ -6,6 +7,8 @@ const nav = [
   ['Home', '/'], ['New In', '/new-in'], ['Shop All', '/shop'], ['Jewellery', '/jewellery'], ['Clothing', '/clothing'], ['Collections', '/collections'], ['Our Story', '/our-story'], ['Contact Us', '/contact']
 ]
 export default function Layout() {
+  const location = useLocation()
+  useEffect(() => { window.scrollTo({ top: 0, left: 0, behavior: 'auto' }) }, [location.pathname, location.search])
   const [menuOpen, setMenuOpen] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false)
   const [query, setQuery] = useState('')

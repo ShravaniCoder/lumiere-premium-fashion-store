@@ -4,6 +4,7 @@ import { StoreProvider } from './context/StoreContext'
 import Home from './pages/Home'
 import Catalog from './pages/Catalog'
 import Collections from './pages/Collections'
+import CollectionDetail from './pages/CollectionDetail'
 import ProductDetails from './pages/ProductDetails'
 import Cart from './pages/Cart'
 import Story from './pages/Story'
@@ -19,6 +20,7 @@ export default function App() {
     <Route path="jewellery" element={<Catalog mode="jewellery"/>}/>
     <Route path="clothing" element={<Catalog mode="clothing"/>}/>
     <Route path="collections" element={<Collections/>}/>
+    <Route path="collections/:slug" element={<CollectionDetail/>}/>
     <Route path="product/:id" element={<ProductDetails/>}/>
     <Route path="cart" element={<Cart/>}/>
     <Route path="our-story" element={<Story/>}/>

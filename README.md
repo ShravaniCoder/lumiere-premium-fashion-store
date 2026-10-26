@@ -41,3 +41,13 @@ Each route uses `react-helmet-async` through `src/components/SEO.jsx` for title,
 
 ## Commerce integration notes
 This starter provides a functional front-end cart, wishlist, product filtering/sorting, collection edit product grids, product image zoom, PIN-format check, discount-code demo field, form validation, account sign-in/create-account demo states, and a checkout demo state. It does **not** process real payments or place real orders. Connect a secure backend and a payment provider such as Razorpay/Cashfree before accepting orders. Do not store payment card data in this frontend.
+
+
+Collection routes are separate from Shop All: `/collections/everyday-edit`, `/collections/statement-edit`, `/collections/effortless-edit`, `/collections/evening-edit`, and `/collections/new-in`. Each collection page includes curated products with Add to Bag and Buy Now demo actions. Navigation changes reset scroll to the top.
+
+
+### Dedicated collection routes
+- Jewellery: `/collections/jewellery-everyday-edit`, `/collections/jewellery-statement-edit`, `/collections/jewellery-evening-edit`, `/collections/jewellery-minimal-edit`
+- Clothing: `/collections/clothing-essential-edit`, `/collections/clothing-workwear-edit`, `/collections/clothing-everyday-edit`, `/collections/clothing-evening-edit`
+
+The Collections landing page groups jewellery and clothing edits separately. Each collection detail page displays category-specific products with Add to Bag and Buy Now demo actions.

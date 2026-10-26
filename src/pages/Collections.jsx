@@ -1,15 +1,24 @@
 import { Link } from 'react-router-dom'
-import { ArrowRight, ArrowUpRight } from 'lucide-react'
+import { ArrowRight, Gem, Shirt } from 'lucide-react'
 import SEO from '../components/SEO'
-import { ProductGrid } from '../components/Sections'
-import { products } from '../data/products'
-const edits = [
-  { id: 'everyday', name: 'The Everyday Edit', sub: 'Quietly elevated, endlessly versatile.', copy: 'Considered essentials for the everyday rituals that make a style your own.', image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=85', align: 'left' },
-  { id: 'statement', name: 'The Statement Edit', sub: 'A little more presence.', copy: 'Sculptural jewellery and distinctive silhouettes that bring personality to a pared-back wardrobe.', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=1600&q=85', align: 'right' },
-  { id: 'effortless', name: 'The Effortless Edit', sub: 'Ease, considered.', copy: 'Relaxed pieces designed to work together and make getting dressed feel instinctive.', image: 'https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85', align: 'left' },
-  { id: 'evening', name: 'The Evening Edit', sub: 'Refined after hours.', copy: 'A thoughtful balance of soft shine, elegant lines and modern occasion dressing.', image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=1600&q=85', align: 'right' },
-  { id: 'new-in', name: 'New In', sub: 'Freshly discovered.', copy: 'Meet the latest arrivals across jewellery and clothing.', image: 'https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=85', align: 'left' }
-]
+import { jewelleryCollections, clothingCollections } from '../data/collections'
+
+function CollectionGroup({ title, intro, items, icon: Icon, numberPrefix }) {
+  return <section className="collection-group content-width">
+    <div className="collection-group-heading">
+      <div className="collection-group-title"><span className="collection-group-icon"><Icon size={21} strokeWidth={1.4}/></span><div><p className="eyebrow">{numberPrefix} · CURATED COLLECTIONS</p><h2>{title}</h2></div></div>
+      <p>{intro}</p>
+    </div>
+    <div className="collection-index collection-group-grid">{items.map((edit, i) => <article className="collection-index-card collection-index-tile" key={edit.id}>
+      <Link to={`/collections/${edit.slug}`} className="collection-index-image"><img src={edit.image} alt={edit.name} loading="lazy"/><span className="image-index">{String(i + 1).padStart(2, '0')} / {String(items.length).padStart(2, '0')}</span><span className="collection-image-cta">EXPLORE EDIT <ArrowRight size={14}/></span></Link>
+      <div className="collection-index-copy"><p className="eyebrow">{edit.category.toUpperCase()} · THE LUMIÈRE EDIT</p><h3>{edit.name}</h3><h4>{edit.sub}</h4><p>{edit.copy}</p><Link className="underlined-link" to={`/collections/${edit.slug}`}>DISCOVER THE COLLECTION <ArrowRight size={15}/></Link></div>
+    </article>)}</div>
+  </section>
+}
+
 export default function Collections() {
-  return <><SEO title="Collections" description="Explore the Everyday, Statement, Effortless and Evening edits, plus the latest arrivals." path="/collections"/><section className="collections-intro"><p className="eyebrow">A WARDROBE, IN CHAPTERS</p><h1>Curated <em>collections.</em></h1><p>Distinctive edits for the many ways you move through the world. Designed to work beautifully on their own — and together.</p></section><div className="collection-editorial content-width">{edits.map((e, i) => <section className={`editorial-row ${e.align === 'right' ? 'reverse' : ''}`} id={e.id} key={e.id}><Link to={e.id === 'new-in' ? '/new-in' : '/shop'} className="editorial-image"><img src={e.image} alt={e.name} loading="lazy"/><span className="image-index">0{i + 1} / 05</span></Link><div className="editorial-copy"><p className="eyebrow">THE LUMIÈRE COLLECTIONS</p><h2>{e.name}</h2><h3>{e.sub}</h3><p>{e.copy}</p><Link className="underlined-link" to={e.id === 'new-in' ? '/new-in' : '/shop'}>EXPLORE THE EDIT <ArrowRight size={15}/></Link></div><div className="edit-products"><p className="eyebrow">PIECES IN THIS EDIT</p><ProductGrid items={(e.id === 'new-in' ? products.filter(p => p.isNew) : e.id === 'statement' ? products.filter(p => p.style === 'Statement' || p.category === 'Jewellery') : e.id === 'evening' ? products.filter(p => p.style === 'Evening' || p.type === 'Dresses') : e.id === 'effortless' ? products.filter(p => p.category === 'Clothing') : products.filter(p => p.style === 'Everyday' || p.isNew)).slice(0, 4)}/></div></section>)}</div></>
+  return <><SEO title="Jewellery & Clothing Collections" description="Explore Lumière's separate jewellery and clothing edits: Everyday, Statement, Evening, Minimal, Essential and Workwear collections." path="/collections"/><section className="collections-intro"><p className="eyebrow">A WARDROBE, IN CHAPTERS</p><h1>Curated <em>collections.</em></h1><p>Two distinct worlds, thoughtfully brought together. Explore jewellery edits and clothing edits separately, each with its own curated products and direct shopping experience.</p><div className="collection-jump-links"><a href="#jewellery-collections">JEWELLERY EDITS <ArrowRight size={14}/></a><a href="#clothing-collections">CLOTHING EDITS <ArrowRight size={14}/></a></div></section>
+    <div id="jewellery-collections"><CollectionGroup title="Jewellery Collections" intro="Finishing touches for every mood, from barely-there essentials to expressive statement pieces." items={jewelleryCollections} icon={Gem} numberPrefix="01"/></div>
+    <div id="clothing-collections"><CollectionGroup title="Clothing Collections" intro="A considered wardrobe for work, everyday living and evenings out." items={clothingCollections} icon={Shirt} numberPrefix="02"/></div>
+  </>
 }

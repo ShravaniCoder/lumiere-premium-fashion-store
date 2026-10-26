@@ -16,9 +16,9 @@ export function CategoryTiles() {
 }
 export function CollectionStrip() {
   const data = [
-    { title: 'The Everyday Edit', text: 'Elevated essentials for every day.', image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85', path: '/collections#everyday' },
-    { title: 'The Statement Edit', text: 'Pieces that speak softly, beautifully.', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85', path: '/collections#statement' },
-    { title: 'The Evening Edit', text: 'Refined looks for after hours.', image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=85', path: '/collections#evening' }
+    { title: 'The Everyday Edit', text: 'Elevated essentials for every day.', image: 'https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=900&q=85', path: '/collections/everyday-edit' },
+    { title: 'The Statement Edit', text: 'Pieces that speak softly, beautifully.', image: 'https://images.unsplash.com/photo-1535632066927-ab7c9ab60908?auto=format&fit=crop&w=900&q=85', path: '/collections/statement-edit' },
+    { title: 'The Evening Edit', text: 'Refined looks for after hours.', image: 'https://images.unsplash.com/photo-1566174053879-31528523f8ae?auto=format&fit=crop&w=900&q=85', path: '/collections/evening-edit' }
   ]
   return <div className="collection-strip">{data.map(item => <Link className="collection-tile" to={item.path} key={item.title}><img src={item.image} alt="" loading="lazy"/><div><h3>{item.title}</h3><p>{item.text}</p><span>EXPLORE EDIT <ArrowUpRight size={14}/></span></div></Link>)}</div>
 }
