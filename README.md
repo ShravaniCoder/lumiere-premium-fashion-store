@@ -13,7 +13,7 @@ A responsive React + Tailwind CSS storefront concept based on the supplied visua
 Run `npm run build`, then deploy the generated `dist/` folder to static hosting.
 
 ## Pages
-- `/` Home
+- `/` Home (also visible in the main navbar)
 - `/shop` Shop All
 - `/new-in` New In
 - `/jewellery` Jewellery
@@ -40,4 +40,4 @@ The palette is defined in `tailwind.config.js` and `src/index.css`:
 Each route uses `react-helmet-async` through `src/components/SEO.jsx` for title, description, canonical URL, and Open Graph basics. Replace `https://example.com` in SEO and sitemap files with your final domain before launch. A React SPA can render SEO metadata client-side; for stronger crawler coverage, consider prerendering or server-side rendering before a production SEO launch.
 
 ## Commerce integration notes
-This starter provides a functional front-end cart, wishlist, product filtering/sorting, form validation, and a checkout demo state. It does **not** process real payments or place real orders. Connect a secure backend and a payment provider such as Razorpay/Cashfree before accepting orders. Do not store payment card data in this frontend.
+This starter provides a functional front-end cart, wishlist, product filtering/sorting, collection edit product grids, product image zoom, PIN-format check, discount-code demo field, form validation, account sign-in/create-account demo states, and a checkout demo state. It does **not** process real payments or place real orders. Connect a secure backend and a payment provider such as Razorpay/Cashfree before accepting orders. Do not store payment card data in this frontend.

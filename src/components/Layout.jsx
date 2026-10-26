@@ -3,7 +3,7 @@ import { Link, NavLink, Outlet } from 'react-router-dom'
 import { Search, UserRound, Heart, ShoppingBag, Menu, X, Instagram, Facebook, ArrowUpRight } from 'lucide-react'
 import { useStore } from '../context/StoreContext'
 const nav = [
-  ['New In', '/new-in'], ['Shop All', '/shop'], ['Jewellery', '/jewellery'], ['Clothing', '/clothing'], ['Collections', '/collections'], ['Our Story', '/our-story'], ['Contact Us', '/contact']
+  ['Home', '/'], ['New In', '/new-in'], ['Shop All', '/shop'], ['Jewellery', '/jewellery'], ['Clothing', '/clothing'], ['Collections', '/collections'], ['Our Story', '/our-story'], ['Contact Us', '/contact']
 ]
 export default function Layout() {
   const [menuOpen, setMenuOpen] = useState(false)
