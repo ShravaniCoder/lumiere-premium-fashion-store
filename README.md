@@ -44,10 +44,3 @@ This starter provides a functional front-end cart, wishlist, product filtering/s
 
 
 Collection routes are separate from Shop All: `/collections/everyday-edit`, `/collections/statement-edit`, `/collections/effortless-edit`, `/collections/evening-edit`, and `/collections/new-in`. Each collection page includes curated products with Add to Bag and Buy Now demo actions. Navigation changes reset scroll to the top.
-
-
-### Dedicated collection routes
-- Jewellery: `/collections/jewellery-everyday-edit`, `/collections/jewellery-statement-edit`, `/collections/jewellery-evening-edit`, `/collections/jewellery-minimal-edit`
-- Clothing: `/collections/clothing-essential-edit`, `/collections/clothing-workwear-edit`, `/collections/clothing-everyday-edit`, `/collections/clothing-evening-edit`
-
-The Collections landing page groups jewellery and clothing edits separately. Each collection detail page displays category-specific products with Add to Bag and Buy Now demo actions.
